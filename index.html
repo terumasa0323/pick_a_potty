@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick-a-Potty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="intro-modal-overlay">
+        <div id="intro-modal-content">
+            <h2>Pick-a-Potty へようこそ！</h2>
+            <p><strong>あなたは今、男子トイレにいます。</strong></p>
+            
+            <hr>
+            
+            <h3>男たちだけに通用する暗黙のルール。それは...</h3>
+            <p class="rule-emphasis"><strong>「隣は絶対、避けて座れ。」</strong></p>
+            
+
+            <button onclick="closeIntro()">ゲーム設定へ進む</button>
+        </div>
+    </div>
+    <h1>Pocky Pick-a-Potty</h1>
+    <div id="setup" style="display: none;">
+        <h3>ゲーム設定</h3>
+        <div class="settings-row">
+            <div class="setting-group">
+                <label for="spots">スポット数:</label>
+                <input type="number" id="spots" value="7" min="3" max="11">
+                <small>奇数推奨 (7, 9, 11)</small>
+            </div>
+            <div class="setting-group">
+                <label for="ai-mode">
+                    <input type="checkbox" id="ai-mode"> AI対戦
+                </label>
+                <small>P1 vs AI (奇数のみ)</small>
+            </div>
+        </div>
+        <button id="start-btn">ゲーム開始</button>
+    </div>
+    <div id="game-board"></div>
+    <div id="status"></div>
+    <div id="win-modal-overlay" style="display: none;">
+        <div id="win-modal-content">
+            <p id="win-message"></p>
+            <button onclick="resetGame()">もう一度プレイ</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

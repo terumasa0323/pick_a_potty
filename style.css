@@ -1,0 +1,269 @@
+/* 既存のCSS（body, h1, #setup, #game-board, .spot など）に続けて追加 */
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #00796b;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+#setup {
+    margin: 15px auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+}
+
+#setup h3 {
+    margin-top: 0;
+    color: #00796b;
+}
+
+.settings-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.setting-group {
+    flex: 1;
+    text-align: center;
+}
+
+.setting-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.setting-group small {
+    color: #666;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 5px;
+}
+
+#setup button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+#setup button:hover {
+    background-color: #1976d2;
+}
+
+/* --- 導入モーダルスタイル --- */
+#intro-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* 暗い背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#intro-modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+#intro-modal-content h2 {
+    color: #0056b3;
+}
+
+.rule-emphasis {
+    font-size: 1.5em;
+    color: #d9534f;
+    margin: 15px 0;
+}
+
+#intro-modal-content ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 20px 0;
+}
+
+#intro-modal-content li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-left: 3px solid #ccc;
+}
+
+#intro-modal-content button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+#intro-modal-content button:hover {
+    background-color: #45a049;
+}
+
+/* --- ゲームボードスタイル --- */
+#game-board {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 100%;
+    background: white;
+    padding: 100px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spot {
+    position: relative;
+    width: 80px;
+    height: auto;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: opacity 0.3s;
+}
+
+.urinal-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.spot:hover {
+    background-color: #e0e0e0;
+}
+
+.spot.occupied {
+    cursor: not-allowed;
+}
+
+.pocky {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    z-index: 10 !important;
+}
+
+.pocky.player2 {
+    background-color: #8b4513; /* P2: チョコポッキー色 */
+}
+
+/* --- ステータスと勝利メッセージ --- */
+#status {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+#win-message {
+    color: #d32f2f;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#win-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#win-modal-content {
+    background: linear-gradient(135deg, #ffeb3b, #ffc107);
+    padding: 40px;
+    border-radius: 20px;
+    border: 5px solid #ff9800;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: victoryBounce 0.6s ease-out;
+}
+
+@keyframes victoryBounce {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+#win-modal-content button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#win-modal-content button:hover {
+    background: linear-gradient(135deg, #45a049, #4caf50);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
