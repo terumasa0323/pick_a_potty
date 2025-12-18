@@ -267,3 +267,10 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
+
+/* --- モバイル対応 --- */
+@media (max-width: 768px) {
+    .spot {
+        width: 120px;
+    }
+}
