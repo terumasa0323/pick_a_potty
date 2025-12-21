@@ -63,7 +63,7 @@ document.getElementById('start-btn').addEventListener('click', () => {
 
 function startGame() {
     spots = new Array(numSpots).fill(null);
-    currentPlayer = 1;
+    currentPlayer = aiMode ? 2 : 1;  // AIモードならAI先手
     gameActive = true;
     player1ImageIndex = 1;
     player2ImageIndex = 1;
@@ -96,9 +96,9 @@ function startGame() {
     
     updateStatus();
     
-    // P1がAIの場合、AIからスタートすることも可能ですが、ここではP2をAIと仮定
+    // AIモードでAI先手の場合、AIからスタート
     if (aiMode && currentPlayer === 2) {
-        setTimeout(aiMove, 500); 
+        setTimeout(aiMove, 500);
     }
 }
 
